@@ -15,8 +15,8 @@ if { [info exists synopsys_program_name ] && ($synopsys_program_name == "icc2_sh
     #set_scenario_status  default -active false
     set_scenario_status func_slow -active true -hold true -setup true
 }
-set wclk_period 2.0
-set rclk_period 2.0
+set wclk_period 0.9
+set rclk_period 0.9
 set wclk2x_period [ expr $wclk_period / 2 ]
 
 create_clock -name "wclk" -period $wclk_period  wclk
@@ -48,9 +48,9 @@ group_path -name OUTPUTS -to [ get_ports -filter "direction==out" ]
 
 
 
-set_input_delay 0.1 -clock rclk {rinc}
-set_input_delay 0.1 -clock wclk {winc}
-set_input_delay 0.1 -clock wclk2x {wdata_in[*]}
+set_input_delay -0.8 -clock rclk {rinc}
+set_input_delay -0.8 -clock wclk {winc}
+set_input_delay -0.8 -clock wclk2x {wdata_in[*]}
 
 
 set_output_delay -0.8 -clock rclk {rempty}

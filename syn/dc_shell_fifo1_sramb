@@ -1,42 +1,7 @@
 setting auto_restore_mw_cel_lib_setup true
 Initializing gui preferences from file  /u/pasam/.synopsys_dv_prefs.tcl
-dc_shell> set top_design sram
-sram
-dc_shell> set_host_options -max_cores 16
-1
-dc_shell> source ../scripts/dc
-Error: could not open script file "../scripts/dc" (CMD-015)
-dc_shell> source ../scripts/dc.tcl
-Error: could not open script file "../../sram.design_config.tcl" (CMD-015)
-Warning: No designs to list. (UID-275)
-Error: can't read "lib_types": no such variable
-        Use error_info for more info. (CMD-013)
-Error: can't read "lib_types_target": no such variable
-        Use error_info for more info. (CMD-013)
-Error: can't read "rtl_list": no such variable
-        Use error_info for more info. (CMD-013)
-Loading db file '/pkgs/synopsys/2020/design_compiler/syn/Q-2019.12-SP3/libraries/syn/dw_foundation.sldb'
-Loading db file '/pkgs/synopsys/2020/design_compiler/syn/Q-2019.12-SP3/libraries/syn/gtech.db'
-Loading db file '/pkgs/synopsys/2020/design_compiler/syn/Q-2019.12-SP3/libraries/syn/standard.sldb'
-  Loading link library 'gtech'
-Error: Cannot find the design 'sram' in the library 'WORK'. (LBR-0)
-Error: Current design is not defined. (UID-4)
-Error: could not open script file "../../constraints/sram.sdc" (CMD-015)
-Error: Current design is not defined. (UID-4)
-Error: Value for list 'object_list' must have 1 elements. (CMD-036)
-Error: Can't find lib_cells matching '*/DELLN*'. (UID-109)
-Error: Value for list 'object_list' must have 1 elements. (CMD-036)
-Error: Current design is not defined. (UID-4)
-Error: Current design is not defined. (UID-4)
-Error: Current design is not defined. (UID-4)
-Error: No files or designs were specified. (UID-22)
-Error: No files or designs were specified. (UID-22)
-Error: Current design is not defined. (UID-4)
-0
-dc_shell> set top_design sram
-sram
-dc_shell> set top_design fifo1_sram
-fifo1_sram
+dc_shell> set top_design fifo1_sramb
+fifo1_sramb
 dc_shell> source ../scripts/dc.tcl
 set lib_dir /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib
 /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib
@@ -71,41 +36,41 @@ set enable_dft 0
 set innovus_enable_manual_macro_placement 0
 0
 set rtl_list [list ../rtl/$top_design.sv ]
-../rtl/fifo1_sram.sv
-set slow_corner "ss0p95v125c_2p25v ss0p95v125c"
-ss0p95v125c_2p25v ss0p95v125c
+../rtl/fifo1_sramb.sv
+set slow_corner "ss0p95v125c_2p25v ss0p95v125c ss0p75v125c_i0p75v"
+ss0p95v125c_2p25v ss0p95v125c ss0p75v125c_i0p75v
 set fast_corner "ff0p95vn40c ff1p16vn40c_2p75v ff1p16vn40c"
 ff0p95vn40c ff1p16vn40c_2p75v ff1p16vn40c
 set synth_corners $slow_corner
-ss0p95v125c_2p25v ss0p95v125c
+ss0p95v125c_2p25v ss0p95v125c ss0p75v125c_i0p75v
 set synth_corners_target "ss0p95v125c" 
 ss0p95v125c
 #set synth_corners_target "ss0p95v125c" 
 set synth_corners_slow $slow_corner
-ss0p95v125c_2p25v ss0p95v125c
+ss0p95v125c_2p25v ss0p95v125c ss0p75v125c_i0p75v
 set synth_corners_fast $fast_corner
 ff0p95vn40c ff1p16vn40c_2p75v ff1p16vn40c
 set slow_metal Cmax_125
 Cmax_125
 set fast_metal Cmax_125
 Cmax_125
-set lib_types "$lib_dir/io_std/db_nldm $lib_dir/sram/db_nldm $lib_dir/pll/db_nldm"
-/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm
-set ndm_types "$lib_dir/stdcell_rvt/ndm $lib_dir/stdcell_hvt/ndm $lib_dir/sram/ndm $lib_dir/io_std/ndm  $lib_dir/pll/ndm"
-/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/ndm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/ndm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/ndm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/ndm  /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/ndm
+set lib_types "$lib_dir/io_std/db_nldm $lib_dir/sram_lp/db_nldm $lib_dir/pll/db_nldm"
+/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram_lp/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm
+set ndm_types "$lib_dir/stdcell_rvt/ndm $lib_dir/stdcell_hvt/ndm $lib_dir/sram_lp/ndm $lib_dir/io_std/ndm  $lib_dir/pll/ndm"
+/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/ndm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/ndm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram_lp/ndm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/ndm  /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/ndm
 set lib_types_target "$lib_dir/stdcell_rvt/db_nldm"
 /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm
-# Get just the main standard cells, srams and IOs
-set sub_lib_type "saed32?vt_ saed32sram_ saed32io_wb_ saed32pll_"
-saed32?vt_ saed32sram_ saed32io_wb_ saed32pll_
+# Get just the main standard cells, sram_lps and IOs
+set sub_lib_type "saed32?vt_ saed32sramlp_ saed32io_wb_ saed32pll_"
+saed32?vt_ saed32sramlp_ saed32io_wb_ saed32pll_
 set sub_lib_type_target "saed32rvt_"
 saed32rvt_
-set lef_types [list $lib_dir/stdcell_hvt/lef  $lib_dir/stdcell_rvt/lef $lib_dir/stdcell_lvt/lef $lib_dir/sram/lef/ $lib_dir/io_std/lef $lib_dir/pll/lef ]
-/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/lef /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/lef /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/lef /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/lef/ /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/lef /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/lef
-set sub_lef_type "saed32nm_?vt_*.lef saed32_sram_*.lef saed32io_std_wb saed32_PLL.lef"
-saed32nm_?vt_*.lef saed32_sram_*.lef saed32io_std_wb saed32_PLL.lef
-set mwlib_types [list $lib_dir/stdcell_hvt/milkyway $lib_dir/stdcell_rvt/milkyway $lib_dir/stdcell_lvt/milkyway  $lib_dir/io_std/milkyway $lib_dir/sram/milkyway $lib_dir/pll/milkyway  ]
-/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/milkyway /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/milkyway /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/milkyway /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/milkyway /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/milkyway /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/milkyway
+set lef_types [list $lib_dir/stdcell_hvt/lef  $lib_dir/stdcell_rvt/lef $lib_dir/stdcell_lvt/lef $lib_dir/sram_lp/lef/ $lib_dir/io_std/lef $lib_dir/pll/lef ]
+/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/lef /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/lef /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/lef /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram_lp/lef/ /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/lef /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/lef
+set sub_lef_type "saed32nm_?vt_*.lef saed32_sramlp_*.lef saed32io_std_wb saed32_PLL.lef"
+saed32nm_?vt_*.lef saed32_sramlp_*.lef saed32io_std_wb saed32_PLL.lef
+set mwlib_types [list $lib_dir/stdcell_hvt/milkyway $lib_dir/stdcell_rvt/milkyway $lib_dir/stdcell_lvt/milkyway  $lib_dir/io_std/milkyway $lib_dir/sram_lp/milkyway $lib_dir/pll/milkyway  ]
+/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/milkyway /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/milkyway /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/milkyway /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/milkyway /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram_lp/milkyway /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/milkyway
 set sub_mwlib_type "saed32nm_?vt_* SRAM32NM saed32io_wb_* SAED32_PLL_FR*"
 saed32nm_?vt_* SRAM32NM saed32io_wb_* SAED32_PLL_FR*
 #set topdir /u/$env(USER)/PSU_RTL2GDS
@@ -120,37 +85,41 @@ Warning: No designs to list. (UID-275)
 
 Starting ANALYZE autoread mode...
 Warning: Defining design library 'WORK' at directory '/u/pasam/lab2-Chetanalahari/syn/work/WORK_autoread'. (AUTOREAD-107)
-Information: Adding '/u/pasam/lab2-Chetanalahari/syn/rtl/fifo1_sram.sv'.  (AUTOREAD-100)
-Information: Scanning file { fifo1_sram.sv }. (AUTOREAD-303)
-Compiling source file /u/pasam/lab2-Chetanalahari/syn/rtl/fifo1_sram.sv
+Information: Adding '/u/pasam/lab2-Chetanalahari/syn/rtl/fifo1_sramb.sv'.  (AUTOREAD-100)
+Information: Scanning file { fifo1_sramb.sv }. (AUTOREAD-303)
+Compiling source file /u/pasam/lab2-Chetanalahari/syn/rtl/fifo1_sramb.sv
 Presto compilation completed successfully.
 Autoread command completed successfully.
 Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm/saed32io_wb_ss0p95v125c_2p25v.db'
-Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram_lp/db_nldm/saed32sramlp_ss0p75v125c_i0p75v.db'
 Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.db'
+Loading db file '/pkgs/synopsys/2020/design_compiler/syn/Q-2019.12-SP3/libraries/syn/dw_foundation.sldb'
 Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.db'
+Loading db file '/pkgs/synopsys/2020/design_compiler/syn/Q-2019.12-SP3/libraries/syn/gtech.db'
+Loading db file '/pkgs/synopsys/2020/design_compiler/syn/Q-2019.12-SP3/libraries/syn/standard.sldb'
   Loading link library 'saed32io_wb_ss0p95v125c_2p25v'
-  Loading link library 'saed32sram_ss0p95v125c'
+  Loading link library 'saed32sramlp_ss0p75v125c_i0p75v'
   Loading link library 'saed32pll_ss0p95v125c_2p25v'
   Loading link library 'saed32rvt_ss0p95v125c'
+  Loading link library 'gtech'
 Running PRESTO HDLC
 
 Inferred memory devices in process
-        in routine fifo1_sram line 19 in file
-                '/u/pasam/lab2-Chetanalahari/syn/rtl/fifo1_sram.sv'.
+        in routine fifo1_sramb line 19 in file
+                '/u/pasam/lab2-Chetanalahari/syn/rtl/fifo1_sramb.sv'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
 |      wdata_reg      | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
 ===============================================================================
-Presto compilation completed successfully. (fifo1_sram)
+Presto compilation completed successfully. (fifo1_sramb)
 Elaborated 1 design.
-Current design is now 'fifo1_sram'.
+Current design is now 'fifo1_sramb'.
 Information: Building the design 'sync_r2w'. (HDL-193)
 
 Inferred memory devices in process
         in routine sync_r2w line 145 in file
-                '/u/pasam/lab2-Chetanalahari/syn/rtl/fifo1_sram.sv'.
+                '/u/pasam/lab2-Chetanalahari/syn/rtl/fifo1_sramb.sv'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
@@ -162,7 +131,7 @@ Information: Building the design 'sync_w2r'. (HDL-193)
 
 Inferred memory devices in process
         in routine sync_w2r line 156 in file
-                '/u/pasam/lab2-Chetanalahari/syn/rtl/fifo1_sram.sv'.
+                '/u/pasam/lab2-Chetanalahari/syn/rtl/fifo1_sramb.sv'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
@@ -170,13 +139,13 @@ Inferred memory devices in process
 |    rq1_wptr_reg     | Flip-flop |  11   |  Y  | N  | Y  | N  | N  | N  | N  |
 ===============================================================================
 Presto compilation completed successfully. (sync_w2r)
-Information: Building the design 'fifomem' instantiated from design 'fifo1_sram' with
+Information: Building the design 'fifomem' instantiated from design 'fifo1_sramb' with
         the parameters "8,10". (HDL-193)
-Warning:  /u/pasam/lab2-Chetanalahari/syn/rtl/fifo1_sram.sv:71: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
-Warning:  /u/pasam/lab2-Chetanalahari/syn/rtl/fifo1_sram.sv:86: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+Warning:  /u/pasam/lab2-Chetanalahari/syn/rtl/fifo1_sramb.sv:71: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+Warning:  /u/pasam/lab2-Chetanalahari/syn/rtl/fifo1_sramb.sv:86: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
 
 Statistics for case statements in always block at line 69 in file
-        '/u/pasam/lab2-Chetanalahari/syn/rtl/fifo1_sram.sv'
+        '/u/pasam/lab2-Chetanalahari/syn/rtl/fifo1_sramb.sv'
 ===============================================
 |           Line           |  full/ parallel  |
 ===============================================
@@ -184,19 +153,19 @@ Statistics for case statements in always block at line 69 in file
 ===============================================
 
 Statistics for case statements in always block at line 84 in file
-        '/u/pasam/lab2-Chetanalahari/syn/rtl/fifo1_sram.sv'
+        '/u/pasam/lab2-Chetanalahari/syn/rtl/fifo1_sramb.sv'
 ===============================================
 |           Line           |  full/ parallel  |
 ===============================================
 |            86            |    auto/auto     |
 ===============================================
 Presto compilation completed successfully. (fifomem_DATASIZE8_ADDRSIZE10)
-Information: Building the design 'rptr_empty' instantiated from design 'fifo1_sram' with
+Information: Building the design 'rptr_empty' instantiated from design 'fifo1_sramb' with
         the parameters "10". (HDL-193)
 
 Inferred memory devices in process
         in routine rptr_empty_ADDRSIZE10 line 175 in file
-                '/u/pasam/lab2-Chetanalahari/syn/rtl/fifo1_sram.sv'.
+                '/u/pasam/lab2-Chetanalahari/syn/rtl/fifo1_sramb.sv'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
@@ -206,19 +175,19 @@ Inferred memory devices in process
 
 Inferred memory devices in process
         in routine rptr_empty_ADDRSIZE10 line 186 in file
-                '/u/pasam/lab2-Chetanalahari/syn/rtl/fifo1_sram.sv'.
+                '/u/pasam/lab2-Chetanalahari/syn/rtl/fifo1_sramb.sv'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
 |     rempty_reg      | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
 ===============================================================================
 Presto compilation completed successfully. (rptr_empty_ADDRSIZE10)
-Information: Building the design 'wptr_full' instantiated from design 'fifo1_sram' with
+Information: Building the design 'wptr_full' instantiated from design 'fifo1_sramb' with
         the parameters "10". (HDL-193)
 
 Inferred memory devices in process
         in routine wptr_full_ADDRSIZE10 line 203 in file
-                '/u/pasam/lab2-Chetanalahari/syn/rtl/fifo1_sram.sv'.
+                '/u/pasam/lab2-Chetanalahari/syn/rtl/fifo1_sramb.sv'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
@@ -228,7 +197,7 @@ Inferred memory devices in process
 
 Inferred memory devices in process
         in routine wptr_full_ADDRSIZE10 line 218 in file
-                '/u/pasam/lab2-Chetanalahari/syn/rtl/fifo1_sram.sv'.
+                '/u/pasam/lab2-Chetanalahari/syn/rtl/fifo1_sramb.sv'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
@@ -293,173 +262,173 @@ proc insert_io { port side} {
   }
 }
 ####################################################
-Creating cell 'io_l_rdata[7]' in design 'fifo1_sram'.
+Creating cell 'io_l_rdata[7]' in design 'fifo1_sramb'.
 Disconnecting net 'rdata[7]' from pin 'fifomem/rdata[7]'.
 Connecting net 'rdata[7]' to pin 'io_l_rdata[7]/PADIO'.
-Creating net 'io_l_rdata[7]_net' in design 'fifo1_sram'.
+Creating net 'io_l_rdata[7]_net' in design 'fifo1_sramb'.
 Connecting net 'io_l_rdata[7]_net' to pin 'fifomem/rdata[7]'.
 Connecting net '*Logic1*' to pin 'io_l_rdata[7]/EN'.
 Connecting net 'io_l_rdata[7]_net' to pin 'io_l_rdata[7]/DIN'.
-Creating cell 'io_l_rdata[6]' in design 'fifo1_sram'.
+Creating cell 'io_l_rdata[6]' in design 'fifo1_sramb'.
 Disconnecting net 'rdata[6]' from pin 'fifomem/rdata[6]'.
 Connecting net 'rdata[6]' to pin 'io_l_rdata[6]/PADIO'.
-Creating net 'io_l_rdata[6]_net' in design 'fifo1_sram'.
+Creating net 'io_l_rdata[6]_net' in design 'fifo1_sramb'.
 Connecting net 'io_l_rdata[6]_net' to pin 'fifomem/rdata[6]'.
 Connecting net '*Logic1*' to pin 'io_l_rdata[6]/EN'.
 Connecting net 'io_l_rdata[6]_net' to pin 'io_l_rdata[6]/DIN'.
-Creating cell 'io_l_rdata[5]' in design 'fifo1_sram'.
+Creating cell 'io_l_rdata[5]' in design 'fifo1_sramb'.
 Disconnecting net 'rdata[5]' from pin 'fifomem/rdata[5]'.
 Connecting net 'rdata[5]' to pin 'io_l_rdata[5]/PADIO'.
-Creating net 'io_l_rdata[5]_net' in design 'fifo1_sram'.
+Creating net 'io_l_rdata[5]_net' in design 'fifo1_sramb'.
 Connecting net 'io_l_rdata[5]_net' to pin 'fifomem/rdata[5]'.
 Connecting net '*Logic1*' to pin 'io_l_rdata[5]/EN'.
 Connecting net 'io_l_rdata[5]_net' to pin 'io_l_rdata[5]/DIN'.
-Creating cell 'io_l_rdata[4]' in design 'fifo1_sram'.
+Creating cell 'io_l_rdata[4]' in design 'fifo1_sramb'.
 Disconnecting net 'rdata[4]' from pin 'fifomem/rdata[4]'.
 Connecting net 'rdata[4]' to pin 'io_l_rdata[4]/PADIO'.
-Creating net 'io_l_rdata[4]_net' in design 'fifo1_sram'.
+Creating net 'io_l_rdata[4]_net' in design 'fifo1_sramb'.
 Connecting net 'io_l_rdata[4]_net' to pin 'fifomem/rdata[4]'.
 Connecting net '*Logic1*' to pin 'io_l_rdata[4]/EN'.
 Connecting net 'io_l_rdata[4]_net' to pin 'io_l_rdata[4]/DIN'.
-Creating cell 'io_l_rdata[3]' in design 'fifo1_sram'.
+Creating cell 'io_l_rdata[3]' in design 'fifo1_sramb'.
 Disconnecting net 'rdata[3]' from pin 'fifomem/rdata[3]'.
 Connecting net 'rdata[3]' to pin 'io_l_rdata[3]/PADIO'.
-Creating net 'io_l_rdata[3]_net' in design 'fifo1_sram'.
+Creating net 'io_l_rdata[3]_net' in design 'fifo1_sramb'.
 Connecting net 'io_l_rdata[3]_net' to pin 'fifomem/rdata[3]'.
 Connecting net '*Logic1*' to pin 'io_l_rdata[3]/EN'.
 Connecting net 'io_l_rdata[3]_net' to pin 'io_l_rdata[3]/DIN'.
-Creating cell 'io_l_rdata[2]' in design 'fifo1_sram'.
+Creating cell 'io_l_rdata[2]' in design 'fifo1_sramb'.
 Disconnecting net 'rdata[2]' from pin 'fifomem/rdata[2]'.
 Connecting net 'rdata[2]' to pin 'io_l_rdata[2]/PADIO'.
-Creating net 'io_l_rdata[2]_net' in design 'fifo1_sram'.
+Creating net 'io_l_rdata[2]_net' in design 'fifo1_sramb'.
 Connecting net 'io_l_rdata[2]_net' to pin 'fifomem/rdata[2]'.
 Connecting net '*Logic1*' to pin 'io_l_rdata[2]/EN'.
 Connecting net 'io_l_rdata[2]_net' to pin 'io_l_rdata[2]/DIN'.
-Creating cell 'io_l_rdata[1]' in design 'fifo1_sram'.
+Creating cell 'io_l_rdata[1]' in design 'fifo1_sramb'.
 Disconnecting net 'rdata[1]' from pin 'fifomem/rdata[1]'.
 Connecting net 'rdata[1]' to pin 'io_l_rdata[1]/PADIO'.
-Creating net 'io_l_rdata[1]_net' in design 'fifo1_sram'.
+Creating net 'io_l_rdata[1]_net' in design 'fifo1_sramb'.
 Connecting net 'io_l_rdata[1]_net' to pin 'fifomem/rdata[1]'.
 Connecting net '*Logic1*' to pin 'io_l_rdata[1]/EN'.
 Connecting net 'io_l_rdata[1]_net' to pin 'io_l_rdata[1]/DIN'.
-Creating cell 'io_l_rdata[0]' in design 'fifo1_sram'.
+Creating cell 'io_l_rdata[0]' in design 'fifo1_sramb'.
 Disconnecting net 'rdata[0]' from pin 'fifomem/rdata[0]'.
 Connecting net 'rdata[0]' to pin 'io_l_rdata[0]/PADIO'.
-Creating net 'io_l_rdata[0]_net' in design 'fifo1_sram'.
+Creating net 'io_l_rdata[0]_net' in design 'fifo1_sramb'.
 Connecting net 'io_l_rdata[0]_net' to pin 'fifomem/rdata[0]'.
 Connecting net '*Logic1*' to pin 'io_l_rdata[0]/EN'.
 Connecting net 'io_l_rdata[0]_net' to pin 'io_l_rdata[0]/DIN'.
-Creating cell 'io_r_wdata_in[7]' in design 'fifo1_sram'.
+Creating cell 'io_r_wdata_in[7]' in design 'fifo1_sramb'.
 Disconnecting net 'wdata_in[7]' from pin 'wdata_reg[7]/next_state'.
 Connecting net 'wdata_in[7]' to pin 'io_r_wdata_in[7]/PADIO'.
-Creating net 'io_r_wdata_in[7]_net' in design 'fifo1_sram'.
+Creating net 'io_r_wdata_in[7]_net' in design 'fifo1_sramb'.
 Connecting net 'io_r_wdata_in[7]_net' to pin 'wdata_reg[7]/next_state'.
 Connecting net '*Logic1*' to pin 'io_r_wdata_in[7]/R_EN'.
 Connecting net 'io_r_wdata_in[7]_net' to pin 'io_r_wdata_in[7]/DOUT'.
-Creating cell 'io_r_wdata_in[6]' in design 'fifo1_sram'.
+Creating cell 'io_r_wdata_in[6]' in design 'fifo1_sramb'.
 Disconnecting net 'wdata_in[6]' from pin 'wdata_reg[6]/next_state'.
 Connecting net 'wdata_in[6]' to pin 'io_r_wdata_in[6]/PADIO'.
-Creating net 'io_r_wdata_in[6]_net' in design 'fifo1_sram'.
+Creating net 'io_r_wdata_in[6]_net' in design 'fifo1_sramb'.
 Connecting net 'io_r_wdata_in[6]_net' to pin 'wdata_reg[6]/next_state'.
 Connecting net '*Logic1*' to pin 'io_r_wdata_in[6]/R_EN'.
 Connecting net 'io_r_wdata_in[6]_net' to pin 'io_r_wdata_in[6]/DOUT'.
-Creating cell 'io_r_wdata_in[5]' in design 'fifo1_sram'.
+Creating cell 'io_r_wdata_in[5]' in design 'fifo1_sramb'.
 Disconnecting net 'wdata_in[5]' from pin 'wdata_reg[5]/next_state'.
 Connecting net 'wdata_in[5]' to pin 'io_r_wdata_in[5]/PADIO'.
-Creating net 'io_r_wdata_in[5]_net' in design 'fifo1_sram'.
+Creating net 'io_r_wdata_in[5]_net' in design 'fifo1_sramb'.
 Connecting net 'io_r_wdata_in[5]_net' to pin 'wdata_reg[5]/next_state'.
 Connecting net '*Logic1*' to pin 'io_r_wdata_in[5]/R_EN'.
 Connecting net 'io_r_wdata_in[5]_net' to pin 'io_r_wdata_in[5]/DOUT'.
-Creating cell 'io_r_wdata_in[4]' in design 'fifo1_sram'.
+Creating cell 'io_r_wdata_in[4]' in design 'fifo1_sramb'.
 Disconnecting net 'wdata_in[4]' from pin 'wdata_reg[4]/next_state'.
 Connecting net 'wdata_in[4]' to pin 'io_r_wdata_in[4]/PADIO'.
-Creating net 'io_r_wdata_in[4]_net' in design 'fifo1_sram'.
+Creating net 'io_r_wdata_in[4]_net' in design 'fifo1_sramb'.
 Connecting net 'io_r_wdata_in[4]_net' to pin 'wdata_reg[4]/next_state'.
 Connecting net '*Logic1*' to pin 'io_r_wdata_in[4]/R_EN'.
 Connecting net 'io_r_wdata_in[4]_net' to pin 'io_r_wdata_in[4]/DOUT'.
-Creating cell 'io_r_wdata_in[3]' in design 'fifo1_sram'.
+Creating cell 'io_r_wdata_in[3]' in design 'fifo1_sramb'.
 Disconnecting net 'wdata_in[3]' from pin 'wdata_reg[3]/next_state'.
 Connecting net 'wdata_in[3]' to pin 'io_r_wdata_in[3]/PADIO'.
-Creating net 'io_r_wdata_in[3]_net' in design 'fifo1_sram'.
+Creating net 'io_r_wdata_in[3]_net' in design 'fifo1_sramb'.
 Connecting net 'io_r_wdata_in[3]_net' to pin 'wdata_reg[3]/next_state'.
 Connecting net '*Logic1*' to pin 'io_r_wdata_in[3]/R_EN'.
 Connecting net 'io_r_wdata_in[3]_net' to pin 'io_r_wdata_in[3]/DOUT'.
-Creating cell 'io_r_wdata_in[2]' in design 'fifo1_sram'.
+Creating cell 'io_r_wdata_in[2]' in design 'fifo1_sramb'.
 Disconnecting net 'wdata_in[2]' from pin 'wdata_reg[2]/next_state'.
 Connecting net 'wdata_in[2]' to pin 'io_r_wdata_in[2]/PADIO'.
-Creating net 'io_r_wdata_in[2]_net' in design 'fifo1_sram'.
+Creating net 'io_r_wdata_in[2]_net' in design 'fifo1_sramb'.
 Connecting net 'io_r_wdata_in[2]_net' to pin 'wdata_reg[2]/next_state'.
 Connecting net '*Logic1*' to pin 'io_r_wdata_in[2]/R_EN'.
 Connecting net 'io_r_wdata_in[2]_net' to pin 'io_r_wdata_in[2]/DOUT'.
-Creating cell 'io_r_wdata_in[1]' in design 'fifo1_sram'.
+Creating cell 'io_r_wdata_in[1]' in design 'fifo1_sramb'.
 Disconnecting net 'wdata_in[1]' from pin 'wdata_reg[1]/next_state'.
 Connecting net 'wdata_in[1]' to pin 'io_r_wdata_in[1]/PADIO'.
-Creating net 'io_r_wdata_in[1]_net' in design 'fifo1_sram'.
+Creating net 'io_r_wdata_in[1]_net' in design 'fifo1_sramb'.
 Connecting net 'io_r_wdata_in[1]_net' to pin 'wdata_reg[1]/next_state'.
 Connecting net '*Logic1*' to pin 'io_r_wdata_in[1]/R_EN'.
 Connecting net 'io_r_wdata_in[1]_net' to pin 'io_r_wdata_in[1]/DOUT'.
-Creating cell 'io_r_wdata_in[0]' in design 'fifo1_sram'.
+Creating cell 'io_r_wdata_in[0]' in design 'fifo1_sramb'.
 Disconnecting net 'wdata_in[0]' from pin 'wdata_reg[0]/next_state'.
 Connecting net 'wdata_in[0]' to pin 'io_r_wdata_in[0]/PADIO'.
-Creating net 'io_r_wdata_in[0]_net' in design 'fifo1_sram'.
+Creating net 'io_r_wdata_in[0]_net' in design 'fifo1_sramb'.
 Connecting net 'io_r_wdata_in[0]_net' to pin 'wdata_reg[0]/next_state'.
 Connecting net '*Logic1*' to pin 'io_r_wdata_in[0]/R_EN'.
 Connecting net 'io_r_wdata_in[0]_net' to pin 'io_r_wdata_in[0]/DOUT'.
-Creating cell 'io_t_rempty' in design 'fifo1_sram'.
+Creating cell 'io_t_rempty' in design 'fifo1_sramb'.
 Disconnecting net 'rempty' from pin 'rptr_empty/rempty'.
 Connecting net 'rempty' to pin 'io_t_rempty/PADIO'.
-Creating net 'io_t_rempty_net' in design 'fifo1_sram'.
+Creating net 'io_t_rempty_net' in design 'fifo1_sramb'.
 Connecting net 'io_t_rempty_net' to pin 'rptr_empty/rempty'.
 Connecting net '*Logic1*' to pin 'io_t_rempty/EN'.
 Connecting net 'io_t_rempty_net' to pin 'io_t_rempty/DIN'.
-Creating cell 'io_t_wfull' in design 'fifo1_sram'.
+Creating cell 'io_t_wfull' in design 'fifo1_sramb'.
 Disconnecting net 'wfull' from pin 'fifomem/wfull'.
 Disconnecting net 'wfull' from pin 'wptr_full/wfull'.
 Connecting net 'wfull' to pin 'io_t_wfull/PADIO'.
-Creating net 'io_t_wfull_net' in design 'fifo1_sram'.
+Creating net 'io_t_wfull_net' in design 'fifo1_sramb'.
 Connecting net 'io_t_wfull_net' to pin 'fifomem/wfull'.
 Connecting net 'io_t_wfull_net' to pin 'wptr_full/wfull'.
 Connecting net '*Logic1*' to pin 'io_t_wfull/EN'.
 Connecting net 'io_t_wfull_net' to pin 'io_t_wfull/DIN'.
-Creating cell 'io_b_rrst_n' in design 'fifo1_sram'.
+Creating cell 'io_b_rrst_n' in design 'fifo1_sramb'.
 Disconnecting net 'rrst_n' from pin 'rptr_empty/rrst_n'.
 Disconnecting net 'rrst_n' from pin 'sync_w2r/rrst_n'.
 Connecting net 'rrst_n' to pin 'io_b_rrst_n/PADIO'.
-Creating net 'io_b_rrst_n_net' in design 'fifo1_sram'.
+Creating net 'io_b_rrst_n_net' in design 'fifo1_sramb'.
 Connecting net 'io_b_rrst_n_net' to pin 'rptr_empty/rrst_n'.
 Connecting net 'io_b_rrst_n_net' to pin 'sync_w2r/rrst_n'.
 Connecting net '*Logic1*' to pin 'io_b_rrst_n/R_EN'.
 Connecting net 'io_b_rrst_n_net' to pin 'io_b_rrst_n/DOUT'.
-Creating cell 'io_b_rclk' in design 'fifo1_sram'.
+Creating cell 'io_b_rclk' in design 'fifo1_sramb'.
 Disconnecting net 'rclk' from pin 'rptr_empty/rclk'.
 Disconnecting net 'rclk' from pin 'fifomem/rclk'.
 Disconnecting net 'rclk' from pin 'sync_w2r/rclk'.
 Connecting net 'rclk' to pin 'io_b_rclk/PADIO'.
-Creating net 'io_b_rclk_net' in design 'fifo1_sram'.
+Creating net 'io_b_rclk_net' in design 'fifo1_sramb'.
 Connecting net 'io_b_rclk_net' to pin 'rptr_empty/rclk'.
 Connecting net 'io_b_rclk_net' to pin 'fifomem/rclk'.
 Connecting net 'io_b_rclk_net' to pin 'sync_w2r/rclk'.
 Connecting net '*Logic1*' to pin 'io_b_rclk/R_EN'.
 Connecting net 'io_b_rclk_net' to pin 'io_b_rclk/DOUT'.
-Creating cell 'io_b_rinc' in design 'fifo1_sram'.
+Creating cell 'io_b_rinc' in design 'fifo1_sramb'.
 Disconnecting net 'rinc' from pin 'rptr_empty/rinc'.
 Connecting net 'rinc' to pin 'io_b_rinc/PADIO'.
-Creating net 'io_b_rinc_net' in design 'fifo1_sram'.
+Creating net 'io_b_rinc_net' in design 'fifo1_sramb'.
 Connecting net 'io_b_rinc_net' to pin 'rptr_empty/rinc'.
 Connecting net '*Logic1*' to pin 'io_b_rinc/R_EN'.
 Connecting net 'io_b_rinc_net' to pin 'io_b_rinc/DOUT'.
-Creating cell 'io_b_wrst_n' in design 'fifo1_sram'.
+Creating cell 'io_b_wrst_n' in design 'fifo1_sramb'.
 Disconnecting net 'wrst_n' from pin 'wptr_full/wrst_n'.
 Disconnecting net 'wrst_n' from pin 'sync_r2w/wrst_n'.
 Disconnecting net 'wrst_n' from pin 'I_0/A'.
 Connecting net 'wrst_n' to pin 'io_b_wrst_n/PADIO'.
-Creating net 'io_b_wrst_n_net' in design 'fifo1_sram'.
+Creating net 'io_b_wrst_n_net' in design 'fifo1_sramb'.
 Connecting net 'io_b_wrst_n_net' to pin 'wptr_full/wrst_n'.
 Connecting net 'io_b_wrst_n_net' to pin 'sync_r2w/wrst_n'.
 Connecting net 'io_b_wrst_n_net' to pin 'I_0/A'.
 Connecting net '*Logic1*' to pin 'io_b_wrst_n/R_EN'.
 Connecting net 'io_b_wrst_n_net' to pin 'io_b_wrst_n/DOUT'.
-Creating cell 'io_b_wclk2x' in design 'fifo1_sram'.
+Creating cell 'io_b_wclk2x' in design 'fifo1_sramb'.
 Disconnecting net 'wclk2x' from pin 'wdata_reg[0]/clocked_on'.
 Disconnecting net 'wclk2x' from pin 'wdata_reg[1]/clocked_on'.
 Disconnecting net 'wclk2x' from pin 'wdata_reg[2]/clocked_on'.
@@ -469,7 +438,7 @@ Disconnecting net 'wclk2x' from pin 'wdata_reg[5]/clocked_on'.
 Disconnecting net 'wclk2x' from pin 'wdata_reg[6]/clocked_on'.
 Disconnecting net 'wclk2x' from pin 'wdata_reg[7]/clocked_on'.
 Connecting net 'wclk2x' to pin 'io_b_wclk2x/PADIO'.
-Creating net 'io_b_wclk2x_net' in design 'fifo1_sram'.
+Creating net 'io_b_wclk2x_net' in design 'fifo1_sramb'.
 Connecting net 'io_b_wclk2x_net' to pin 'wdata_reg[0]/clocked_on'.
 Connecting net 'io_b_wclk2x_net' to pin 'wdata_reg[1]/clocked_on'.
 Connecting net 'io_b_wclk2x_net' to pin 'wdata_reg[2]/clocked_on'.
@@ -480,22 +449,22 @@ Connecting net 'io_b_wclk2x_net' to pin 'wdata_reg[6]/clocked_on'.
 Connecting net 'io_b_wclk2x_net' to pin 'wdata_reg[7]/clocked_on'.
 Connecting net '*Logic1*' to pin 'io_b_wclk2x/R_EN'.
 Connecting net 'io_b_wclk2x_net' to pin 'io_b_wclk2x/DOUT'.
-Creating cell 'io_b_wclk' in design 'fifo1_sram'.
+Creating cell 'io_b_wclk' in design 'fifo1_sramb'.
 Disconnecting net 'wclk' from pin 'wptr_full/wclk'.
 Disconnecting net 'wclk' from pin 'fifomem/wclk'.
 Disconnecting net 'wclk' from pin 'sync_r2w/wclk'.
 Connecting net 'wclk' to pin 'io_b_wclk/PADIO'.
-Creating net 'io_b_wclk_net' in design 'fifo1_sram'.
+Creating net 'io_b_wclk_net' in design 'fifo1_sramb'.
 Connecting net 'io_b_wclk_net' to pin 'wptr_full/wclk'.
 Connecting net 'io_b_wclk_net' to pin 'fifomem/wclk'.
 Connecting net 'io_b_wclk_net' to pin 'sync_r2w/wclk'.
 Connecting net '*Logic1*' to pin 'io_b_wclk/R_EN'.
 Connecting net 'io_b_wclk_net' to pin 'io_b_wclk/DOUT'.
-Creating cell 'io_b_winc' in design 'fifo1_sram'.
+Creating cell 'io_b_winc' in design 'fifo1_sramb'.
 Disconnecting net 'winc' from pin 'wptr_full/winc'.
 Disconnecting net 'winc' from pin 'fifomem/wclken'.
 Connecting net 'winc' to pin 'io_b_winc/PADIO'.
-Creating net 'io_b_winc_net' in design 'fifo1_sram'.
+Creating net 'io_b_winc_net' in design 'fifo1_sramb'.
 Connecting net 'io_b_winc_net' to pin 'wptr_full/winc'.
 Connecting net 'io_b_winc_net' to pin 'fifomem/wclken'.
 Connecting net '*Logic1*' to pin 'io_b_winc/R_EN'.
@@ -518,12 +487,12 @@ if { [info exists synopsys_program_name ] && ($synopsys_program_name == "icc2_sh
     #set_scenario_status  default -active false
     set_scenario_status func_slow -active true -hold true -setup true
 }
-set wclk_period 2.0
-2.0
-set rclk_period 2.0
-2.0
+set wclk_period 0.9
+0.9
+set rclk_period 0.9
+0.9
 set wclk2x_period [ expr $wclk_period / 2 ]
-1.0
+0.45
 create_clock -name "wclk" -period $wclk_period  wclk
 1
 create_clock -name "rclk" -period $rclk_period rclk
@@ -534,6 +503,10 @@ create_clock -name "wclk2x" -period $wclk2x_period wclk2x
 set_false_path -from [get_clocks wclk ] -to [get_clocks rclk]
 1
 set_false_path -from [get_clocks rclk ] -to [ get_clocks wclk]
+1
+set_false_path -from [get_clocks wclk2x ] -to [get_clocks rclk]
+1
+set_false_path -from [get_clocks rclk ] -to [ get_clocks wclk2x]
 1
 # Add input/output delays in relation to related clocks
 # Can tell the related clock by doing report_timing -group INPUTS  or -group OUTPUTS after using group_path
@@ -546,10 +519,35 @@ group_path -name INPUTS -from [ get_ports -filter "direction==in&&full_name!~*cl
 1
 group_path -name OUTPUTS -to [ get_ports -filter "direction==out" ]
 1
-Current design is 'fifo1_sram'.
+set_input_delay -0.8 -clock rclk {rinc}
+1
+set_input_delay -0.8 -clock wclk {winc}
+1
+set_input_delay -0.8 -clock wclk2x {wdata_in[*]}
+1
+set_output_delay -0.8 -clock rclk {rempty}
+1
+set_output_delay -0.8 -clock wclk {wfull}
+1
+set_output_delay -0.8 -clock wclk2x {rdata[*]}
+1
+set_clock_uncertainty -setup 0.01 [get_clocks *clk*]
+1
+set_clock_uncertainty -hold 0.001 [get_clocks *clk*]
+1
+set_input_transition 0.5 [get_ports -filter "direction==in"]
+1
+set_clock_latency 1 [get_clocks *clk*] 
+1
+set_load 0.01 [get_ports -filter "direction==out"]
+1
+set_drive  0.01 [get_ports -filter "direction==in"]
+1
+set_clock_transition 0.5 [get_clocks *clk*]
+1
+Current design is 'fifo1_sramb'.
 Information: Performing power optimization. (PWR-850)
 Alib files are up-to-date.
-Information: Running optimization using a maximum of 16 cores. (OPT-1500)
 Information: Choosing a test methodology will restrict the optimization of sequential cells. (UIO-12)
 Information: Evaluating DesignWare library utilization. (UISN-27)
 
@@ -564,7 +562,7 @@ Information: Sequential output inversion is enabled.  SVF file must be used for 
 
 Information: There are 65 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
 
-  Simplifying Design 'fifo1_sram'
+  Simplifying Design 'fifo1_sramb'
 
 Loaded alib file './alib-52/saed32rvt_ss0p95v125c.db.alib'
 Information: State dependent leakage is now switched from on to off.
@@ -572,7 +570,7 @@ Information: State dependent leakage is now switched from on to off.
   Beginning Pass 1 Mapping
   ------------------------
   Processing 'fifomem_DATASIZE8_ADDRSIZE10'
-  Processing 'fifo1_sram'
+  Processing 'fifo1_sramb'
   Processing 'wptr_full_ADDRSIZE10'
 Information: Added key list 'DesignWare' to design 'wptr_full_ADDRSIZE10'. (DDB-72)
 Information: In design 'wptr_full_ADDRSIZE10', the register 'wptr_reg_10_' is removed because it is merged to 'wbin_reg_10_'. (OPT-1215)
@@ -605,13 +603,23 @@ Threshold voltage group cell usage:
   Beginning Mapping Optimizations  (Ultra High effort)
   -------------------------------
   Mapping Optimization (Phase 1)
+  Mapping Optimization (Phase 2)
+  Mapping Optimization (Phase 3)
+  Mapping Optimization (Phase 4)
+  Mapping Optimization (Phase 5)
+  Mapping Optimization (Phase 6)
+  Mapping Optimization (Phase 7)
+  Mapping Optimization (Phase 8)
+  Mapping Optimization (Phase 9)
+  Mapping Optimization (Phase 10)
+  Mapping Optimization (Phase 11)
 
                                   TOTAL                                                
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:01:05  370672.3      0.00       0.0     126.4                           1106349184.0000
-    0:01:05  370672.3      0.00       0.0     126.4                           1106349184.0000
+    0:00:30  511426.6      0.21       0.7   23993.9                           1159729664.0000
+    0:00:30  511425.1      0.24       0.7   23993.9                           1159704960.0000
 
 Threshold voltage group cell usage:
 >> saed32cell_svt 100.00%
@@ -655,6 +663,7 @@ Threshold voltage group cell usage:
   Global Optimization (Phase 27)
   Global Optimization (Phase 28)
   Global Optimization (Phase 29)
+  Global Optimization (Phase 30)
 
 Threshold voltage group cell usage:
 >> saed32cell_svt 100.00%
@@ -667,40 +676,40 @@ Threshold voltage group cell usage:
 
   Beginning Delay Optimization
   ----------------------------
-    0:01:06  370664.2      0.00       0.0     142.4                           1107368320.0000
-    0:01:06  370664.2      0.00       0.0     142.4                           1107368320.0000
-    0:01:06  370664.2      0.00       0.0     142.4                           1107368320.0000
-    0:01:06  370664.2      0.00       0.0     142.4                           1107368320.0000
+    0:00:31  511291.7     17.23     146.0   25487.3                           1124472832.0000
+    0:00:34  511425.3      0.18       0.8   24023.7                           1155582592.0000
+    0:00:34  511425.3      0.18       0.8   24023.7                           1155582592.0000
+    0:00:34  511451.0      0.18       0.9   24023.7                           1161989376.0000
 
 Threshold voltage group cell usage:
 >> saed32cell_svt 100.00%
-    0:01:06  370652.3      0.00       0.0     142.4                           1107257600.0000
-    0:01:06  370652.3      0.00       0.0     142.4                           1107257600.0000
+    0:00:34  511451.0      0.18       0.9   24023.7                           1161989376.0000
+    0:00:34  511451.0      0.18       0.9   24023.7                           1161989376.0000
 
   Beginning WLM Backend Optimization
   --------------------------------------
-    0:01:06  370651.0      0.00       0.0     142.4                           1107231488.0000
-    0:01:06  370651.0      0.00       0.0     142.4                           1107231488.0000
-    0:01:06  370651.0      0.00       0.0     142.4                           1107231488.0000
-    0:01:06  370651.0      0.00       0.0     142.4                           1107076864.0000
-    0:01:06  370651.0      0.00       0.0     142.4                           1107076864.0000
-    0:01:06  370651.0      0.00       0.0     142.4                           1107076864.0000
-    0:01:06  370651.0      0.00       0.0     142.4                           1107076864.0000
-    0:01:06  370651.0      0.00       0.0     142.4                           1107076864.0000
-    0:01:06  370651.0      0.00       0.0     142.4                           1107076864.0000
-    0:01:06  370651.0      0.00       0.0     142.4                           1107076864.0000
-    0:01:06  370651.0      0.00       0.0     142.4                           1107076864.0000
-    0:01:06  370651.0      0.00       0.0     142.4                           1107076864.0000
-    0:01:06  370651.0      0.00       0.0     142.4                           1107076864.0000
-    0:01:06  370651.0      0.00       0.0     142.4                           1107076864.0000
-    0:01:06  370651.0      0.00       0.0     142.4                           1107076864.0000
-    0:01:06  370651.0      0.00       0.0     142.4                           1107076864.0000
-    0:01:06  370651.0      0.00       0.0     142.4                           1107076864.0000
-    0:01:06  370651.0      0.00       0.0     142.4                           1107076864.0000
-    0:01:06  370651.0      0.00       0.0     142.4                           1107076864.0000
-    0:01:06  370651.0      0.00       0.0     142.4                           1107076864.0000
-    0:01:06  370651.0      0.00       0.0     142.4                           1107076864.0000
-    0:01:06  370651.0      0.00       0.0     142.4                           1107076864.0000
+    0:00:34  511435.8      0.18       0.9   24023.7                           1160176128.0000
+    0:00:34  511435.5      0.18       0.9   24023.7                           1160094848.0000
+    0:00:34  511435.5      0.18       0.9   24023.7                           1160094848.0000
+    0:00:34  511421.3      0.18       0.9   24023.7                           1155476224.0000
+    0:00:34  511421.3      0.18       0.9   24023.7                           1155476224.0000
+    0:00:40  511514.8      0.17       0.7   24023.7                           1161211392.0000
+    0:00:40  511514.8      0.17       0.7   24023.7                           1161211392.0000
+    0:00:40  511515.0      0.16       0.7   24023.7                           1161293312.0000
+    0:00:40  511515.0      0.16       0.7   24023.7                           1161293312.0000
+    0:00:41  511515.0      0.16       0.7   24023.7                           1161293312.0000
+    0:00:41  511515.0      0.16       0.7   24023.7                           1161293312.0000
+    0:00:46  511519.1      0.15       0.6   24023.7                           1161487744.0000
+    0:00:46  511519.1      0.15       0.6   24023.7                           1161487744.0000
+    0:00:47  511521.7      0.18       0.7   24023.7                           1161729920.0000
+    0:00:47  511521.7      0.18       0.7   24023.7                           1161729920.0000
+    0:00:51  511515.8      0.16       0.6   24023.7                           1163786752.0000
+    0:00:51  511515.8      0.16       0.6   24023.7                           1163786752.0000
+    0:00:56  511557.2      0.16       0.6   24023.7                           1168278144.0000
+    0:00:56  511557.2      0.16       0.6   24023.7                           1168278144.0000
+    0:01:00  511538.2      0.18       0.6   24023.7                           1165736704.0000
+    0:01:00  511538.2      0.18       0.6   24023.7                           1165736704.0000
+    0:01:05  511563.8      0.16       0.6   24023.7                           1165654144.0000
 
 
   Beginning Design Rule Fixing  (max_transition)  (max_capacitance)
@@ -710,12 +719,15 @@ Threshold voltage group cell usage:
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:01:06  370651.0      0.00       0.0     142.4                           1107076864.0000
-  Global Optimization (Phase 30)
+    0:01:05  511563.8      0.16       0.6   24023.7                           1165654144.0000
   Global Optimization (Phase 31)
   Global Optimization (Phase 32)
-    0:01:07  370658.6      0.00       0.0       3.9                           1109128448.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1109128448.0000
+  Global Optimization (Phase 33)
+    0:01:05  511867.8      0.14       0.3   35612.8 rptr_empty/rempty_reg/D   1245988992.0000
+    0:01:06  511835.5      0.11       0.2   33265.7 net12553                  1229661312.0000
+    0:01:06  512052.3      0.11       0.6   35612.5 net12814                  1290264832.0000
+    0:01:07  511827.6      0.11       0.3   35611.9                           1223630336.0000
+    0:01:16  511834.5      0.14       0.3   35612.0                           1225879936.0000
 
 Threshold voltage group cell usage:
 >> saed32cell_svt 100.00%
@@ -728,8 +740,7 @@ Threshold voltage group cell usage:
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:01:07  370658.6      0.00       0.0       3.9                           1109128448.0000
-  Global Optimization (Phase 33)
+    0:01:16  511834.5      0.14       0.3   35612.0                           1225879936.0000
   Global Optimization (Phase 34)
   Global Optimization (Phase 35)
   Global Optimization (Phase 36)
@@ -741,46 +752,53 @@ Threshold voltage group cell usage:
   Global Optimization (Phase 42)
   Global Optimization (Phase 43)
   Global Optimization (Phase 44)
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
+  Global Optimization (Phase 45)
+  Global Optimization (Phase 46)
+  Global Optimization (Phase 47)
+  Global Optimization (Phase 48)
+    0:01:17  511602.5      0.11       0.3   35611.1                           1172168704.0000
+    0:01:18  511634.5      0.10       0.3   35611.3                           1180203264.0000
+    0:01:18  511634.5      0.10       0.3   35611.3                           1180203264.0000
+    0:01:18  511626.4      0.10       0.3   35611.3                           1177704192.0000
+    0:01:18  511626.4      0.10       0.3   35611.3                           1177704192.0000
+    0:01:19  511626.4      0.10       0.3   35611.3                           1177704192.0000
+    0:01:19  511626.4      0.10       0.3   35611.3                           1177704192.0000
+    0:01:19  511621.3      0.09       0.3   35611.3                           1176180736.0000
+    0:01:19  511621.3      0.09       0.3   35611.3                           1176180736.0000
+    0:01:20  511621.3      0.09       0.3   35611.3                           1176180736.0000
+    0:01:20  511621.3      0.09       0.3   35611.3                           1176180736.0000
+    0:01:20  511620.0      0.09       0.2   35611.3                           1174061568.0000
+    0:01:20  511620.0      0.09       0.2   35611.3                           1174061568.0000
+    0:01:22  511623.6      0.08       0.2   35611.3                           1174118528.0000
+    0:01:22  511623.6      0.08       0.2   35611.3                           1174118528.0000
+    0:01:25  511625.8      0.07       0.2   35611.3                           1174424448.0000
+    0:01:25  511625.8      0.07       0.2   35611.3                           1174424448.0000
+    0:01:26  511625.3      0.08       0.2   35611.3                           1174424832.0000
+    0:01:26  511625.3      0.08       0.2   35611.3                           1174424832.0000
+    0:01:28  511625.6      0.06       0.2   35611.3                           1174597888.0000
+    0:01:28  511625.6      0.06       0.2   35611.3                           1174597888.0000
+    0:01:29  511625.6      0.06       0.2   35611.3                           1174579200.0000
 
                                   TOTAL                                                
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
-    0:01:07  370658.6      0.00       0.0       3.9                           1107957248.0000
+    0:01:29  511625.6      0.06       0.2   35611.3                           1174579200.0000
+    0:01:29  511585.2      0.06       0.2   35611.4                           1168595456.0000
+    0:01:29  511576.3      0.06       0.2   35611.4                           1168052352.0000
+    0:01:29  511576.3      0.06       0.2   35611.4                           1168052352.0000
+    0:01:30  511576.0      0.06       0.2   35611.4                           1168021248.0000
+    0:01:30  511735.1      0.06       0.1   35611.9 wptr_full/wfull_reg/D     1213518720.0000
+    0:01:30  512007.3      0.13       0.5   35612.7 rptr_empty/rempty_reg/D   1291525632.0000
+    0:01:31  512045.7      0.10       0.9   35612.0                           1297050368.0000
+    0:01:32  511840.9      0.06       0.1   35612.5                           1239330048.0000
+    0:01:32  511840.9      0.06       0.1   35612.5                           1239330048.0000
+    0:01:32  511840.9      0.06       0.1   35612.5                           1239330048.0000
+    0:01:32  511840.9      0.06       0.1   35612.5                           1239330048.0000
+    0:01:32  511840.9      0.06       0.1   35612.5                           1239330048.0000
+    0:01:33  511618.5      0.06       0.1   35611.2                           1171400320.0000
 Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm/saed32io_wb_ss0p95v125c_2p25v.db'
-Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram_lp/db_nldm/saed32sramlp_ss0p75v125c_i0p75v.db'
 Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.db'
 Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.db'
 
@@ -793,19 +811,234 @@ Note: Symbol # after min delay cost means estimated hold TNS across all active s
 Information: State dependent leakage is now switched from off to on.
 Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
 Warning: Design has unannotated black box outputs. (PWR-428)
-Writing verilog file '/u/pasam/lab2-Chetanalahari/syn/outputs/fifo1_sram.dc.vg'.
-Writing ddc file '../outputs/fifo1_sram.dc.ddc'.
+Writing verilog file '/u/pasam/lab2-Chetanalahari/syn/outputs/fifo1_sramb.dc.vg'.
+Writing ddc file '../outputs/fifo1_sramb.dc.ddc'.
 1
-dc_shell> 
-dc_shell> 
-dc_shell> 
-dc_shell> 
-dc_shell> exit 1
+dc_shell> report_timing -group OUTPUTS
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -group OUTPUTS
+        -max_paths 1
+Design : fifo1_sramb
+Version: Q-2019.12-SP3
+Date   : Fri Jan 27 03:29:13 2023
+****************************************
 
-Memory usage for this session 356 Mbytes.
-Memory usage for this session including child processes 356 Mbytes.
-CPU usage for this session 22 seconds ( 0.01 hours ).
-Elapsed time for this session 79 seconds ( 0.02 hours ).
+Operating Conditions: ss0p95v125c   Library: saed32rvt_ss0p95v125c
+Wire Load Model Mode: enclosed
+
+  Startpoint: rptr_empty/rempty_reg
+              (rising edge-triggered flip-flop clocked by rclk)
+  Endpoint: rempty (output port clocked by rclk)
+  Path Group: OUTPUTS
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  fifo1_sramb        540000                saed32rvt_ss0p95v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock rclk (rise edge)                                  0.00       0.00
+  clock network delay (ideal)                             1.00       1.00
+  rptr_empty/rempty_reg/CLK (SDFFASX1_RVT)                0.00       1.00 r
+  rptr_empty/rempty_reg/QN (SDFFASX1_RVT)                 0.22       1.22 r
+  rptr_empty/rempty_BAR (rptr_empty_ADDRSIZE10)           0.00       1.22 r
+  U60/Y (IBUFFX16_RVT)                                    0.09       1.31 f
+  io_t_rempty/PADIO (D8I1025_NS)                          1.38       2.69 f
+  rempty (out)                                            0.00       2.69 f
+  data arrival time                                                  2.69
+
+  clock rclk (rise edge)                                  0.90       0.90
+  clock network delay (ideal)                             1.00       1.90
+  clock uncertainty                                      -0.01       1.89
+  output external delay                                   0.80       2.69
+  data required time                                                 2.69
+  --------------------------------------------------------------------------
+  data required time                                                 2.69
+  data arrival time                                                 -2.69
+  --------------------------------------------------------------------------
+  slack (VIOLATED: increase significant digits)                      0.00
+
+
+1
+dc_shell> report_timing -group INPUTS
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -group INPUTS
+        -max_paths 1
+Design : fifo1_sramb
+Version: Q-2019.12-SP3
+Date   : Fri Jan 27 03:29:33 2023
+****************************************
+
+Operating Conditions: ss0p95v125c   Library: saed32rvt_ss0p95v125c
+Wire Load Model Mode: enclosed
+
+  Startpoint: rinc (input port clocked by rclk)
+  Endpoint: rptr_empty/rempty_reg
+            (rising edge-triggered flip-flop clocked by rclk)
+  Path Group: INPUTS
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  fifo1_sramb        540000                saed32rvt_ss0p95v125c
+  rptr_empty_ADDRSIZE10
+                     8000                  saed32rvt_ss0p95v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock rclk (rise edge)                                  0.00       0.00
+  clock network delay (ideal)                             1.00       1.00
+  input external delay                                   -0.80       0.20 f
+  rinc (in)                                               0.01       0.21 f
+  U41/Y (IBUFFX16_RVT)                                    0.07       0.28 r
+  U58/Y (INVX32_RVT)                                      0.48       0.76 f
+  io_b_rinc/DOUT (I1025_NS)                               0.48       1.23 f
+  rptr_empty/rinc (rptr_empty_ADDRSIZE10)                 0.00       1.23 f
+  rptr_empty/U22/Y (NAND3X0_RVT)                          0.08       1.31 r
+  rptr_empty/U45/Y (NAND2X0_RVT)                          0.05       1.36 f
+  rptr_empty/U11/Y (AND2X1_RVT)                           0.07       1.43 f
+  rptr_empty/U10/Y (MUX21X2_RVT)                          0.09       1.51 f
+  rptr_empty/U25/Y (XNOR2X2_RVT)                          0.09       1.61 r
+  rptr_empty/U13/Y (AND2X1_RVT)                           0.05       1.65 r
+  rptr_empty/U8/Y (AND3X1_RVT)                            0.06       1.72 r
+  rptr_empty/U15/Y (AND4X1_RVT)                           0.08       1.80 r
+  rptr_empty/rempty_reg/D (SDFFASX1_RVT)                  0.00       1.80 r
+  data arrival time                                                  1.80
+
+  clock rclk (rise edge)                                  0.90       0.90
+  clock network delay (ideal)                             1.00       1.90
+  clock uncertainty                                      -0.01       1.89
+  rptr_empty/rempty_reg/CLK (SDFFASX1_RVT)                0.00       1.89 r
+  library setup time                                     -0.13       1.76
+  data required time                                                 1.76
+  --------------------------------------------------------------------------
+  data required time                                                 1.76
+  data arrival time                                                 -1.80
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -0.04
+
+
+1
+dc_shell> report_timing -group INTERNAL -transition_time
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -group INTERNAL
+        -max_paths 1
+        -transition_time
+Design : fifo1_sramb
+Version: Q-2019.12-SP3
+Date   : Fri Jan 27 03:30:18 2023
+****************************************
+
+Operating Conditions: ss0p95v125c   Library: saed32rvt_ss0p95v125c
+Wire Load Model Mode: enclosed
+Error: Invalid path group name INTERNAL supplied with -group option. (UID-423)
+No paths.
+
+1
+dc_shell> report_timing -group INTERNALS -transition_time
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -group INTERNALS
+        -max_paths 1
+        -transition_time
+Design : fifo1_sramb
+Version: Q-2019.12-SP3
+Date   : Fri Jan 27 03:30:28 2023
+****************************************
+
+Operating Conditions: ss0p95v125c   Library: saed32rvt_ss0p95v125c
+Wire Load Model Mode: enclosed
+Error: Invalid path group name INTERNALS supplied with -group option. (UID-423)
+No paths.
+
+1
+dc_shell> report_timing -group INPUTS -transition_time
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -group INPUTS
+        -max_paths 1
+        -transition_time
+Design : fifo1_sramb
+Version: Q-2019.12-SP3
+Date   : Fri Jan 27 03:30:39 2023
+****************************************
+
+Operating Conditions: ss0p95v125c   Library: saed32rvt_ss0p95v125c
+Wire Load Model Mode: enclosed
+
+  Startpoint: rinc (input port clocked by rclk)
+  Endpoint: rptr_empty/rempty_reg
+            (rising edge-triggered flip-flop clocked by rclk)
+  Path Group: INPUTS
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  fifo1_sramb        540000                saed32rvt_ss0p95v125c
+  rptr_empty_ADDRSIZE10
+                     8000                  saed32rvt_ss0p95v125c
+
+  Point                                        Trans      Incr       Path
+  --------------------------------------------------------------------------
+  clock rclk (rise edge)                                  0.00       0.00
+  clock network delay (ideal)                             1.00       1.00
+  input external delay                                   -0.80       0.20 f
+  rinc (in)                                     0.01      0.01       0.21 f
+  U41/Y (IBUFFX16_RVT)                          0.03      0.07       0.28 r
+  U58/Y (INVX32_RVT)                            0.69      0.48       0.76 f
+  io_b_rinc/DOUT (I1025_NS)                     0.16      0.48       1.23 f
+  rptr_empty/rinc (rptr_empty_ADDRSIZE10)                 0.00       1.23 f
+  rptr_empty/U22/Y (NAND3X0_RVT)                0.08      0.08       1.31 r
+  rptr_empty/U45/Y (NAND2X0_RVT)                0.04      0.05       1.36 f
+  rptr_empty/U11/Y (AND2X1_RVT)                 0.03      0.07       1.43 f
+  rptr_empty/U10/Y (MUX21X2_RVT)                0.04      0.09       1.51 f
+  rptr_empty/U25/Y (XNOR2X2_RVT)                0.03      0.09       1.61 r
+  rptr_empty/U13/Y (AND2X1_RVT)                 0.02      0.05       1.65 r
+  rptr_empty/U8/Y (AND3X1_RVT)                  0.03      0.06       1.72 r
+  rptr_empty/U15/Y (AND4X1_RVT)                 0.04      0.08       1.80 r
+  rptr_empty/rempty_reg/D (SDFFASX1_RVT)        0.04      0.00       1.80 r
+  data arrival time                                                  1.80
+
+  clock rclk (rise edge)                                  0.90       0.90
+  clock network delay (ideal)                             1.00       1.90
+  clock uncertainty                                      -0.01       1.89
+  rptr_empty/rempty_reg/CLK (SDFFASX1_RVT)                0.00       1.89 r
+  library setup time                                     -0.13       1.76
+  data required time                                                 1.76
+  --------------------------------------------------------------------------
+  data required time                                                 1.76
+  data arrival time                                                 -1.80
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -0.04
+
+
+1
+dc_shell> exit
+
+Memory usage for this session 199 Mbytes.
+Memory usage for this session including child processes 199 Mbytes.
+CPU usage for this session 74 seconds ( 0.02 hours ).
+Elapsed time for this session 218 seconds ( 0.06 hours ).
 
 Thank you...
 
